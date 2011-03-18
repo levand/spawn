@@ -6,6 +6,7 @@ Warning: Spawn is still a work in progress and is not yet ready for public consu
 Spawn is a leiningen plugin that makes it easy to get up and running with various types of Clojure projects. It supports automated project and code generation, similar to the scaffolding and project generation features found in Rails.
 
 It has two primary goals:
+
 1. To provide templated projects as a learning tool for Clojure newbies, allowing them to start building applications (such as web apps) right away. Figuring out how to assemble the relevant components can be a daunting task for someone lacking prior Clojure experience. 
 2. To save time for experienced Clojure users, allowing them to stub out common application types in seconds instead of having to tediously build out the same infrastructure every time.
 
