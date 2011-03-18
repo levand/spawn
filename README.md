@@ -34,15 +34,15 @@ TODO
 ----
 
 Immediate needs before public release:
-- Implement a genome for controller generation within a webapp
-- Implement a genome for view generation within a webapp (using StringTemplate)
-- Make more newbie-friendly by providing helpful guidance on errors instead of stack traces.
-- Provide a mechanism for introspecting and listing the available genomes, along with documentation
+-   Implement a genome for controller generation within a webapp
+-   Implement a genome for view generation within a webapp (using StringTemplate)
+-   Make more newbie-friendly by providing helpful guidance on errors instead of stack traces.
+-   Provide a mechanism for introspecting and listing the available genomes, along with documentation
 
 Nice-to-haves:
-- Implement a genome for RESTful resource generation within a webapp
-- Implement a genome for generating an Enlive view
-- Implement a a genome for generating a Hiccup view
-- Enable war compilation for the generated webapp
-- Make it possible to create and install genomes without recompiling and redistributing Spawn
+-   Implement a genome for RESTful resource generation within a webapp
+-   Implement a genome for generating an Enlive view
+-   Implement a a genome for generating a Hiccup view
+-   Enable war compilation for the generated webapp
+-   Make it possible to create and install genomes without recompiling and redistributing Spawn
 
