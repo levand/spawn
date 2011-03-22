@@ -4,6 +4,7 @@
 
 (defroutes main-routes
   (GET "/" [] "<h1>Hello from $name$</h1>")
+  (route/files "/public" {:root "public"})
   (route/not-found "<h1>Page not found. Sorry.</h1>"))
 
 (defn -main
