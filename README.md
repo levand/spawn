@@ -21,6 +21,15 @@ Creating a Web Application
 2. Switch to the directory that was just created, and type `lein run`
 3. That's it! You've successfully created a web application and started a server. You can visit `localhost:8080` in your browser to check it out.
 
+Generating a Controller
+-----------------------
+
+1. Create a webapp using spawn.
+2. At the commandline, in the root folder for the webapp, run `lein spawn controller <name>`.
+3. That's it! You can try out your new controller by visiting localhost:8080/<name>/. You can see your new controller in the src/.../controllers directory, and you can look at how it's routes are wired into the webapp in src/.../server.clj
+
+Note: In order to modify your server.clj file and add the new route, Spawn searches for certain strings so it knows where to insert the new code. If you modify server.clj, Spawn might not be able wire in the new controller. In this case, you'll either have to revert your server.clj file to a form that Spawn can handle, or add the new controller by hand.
+
 Extensions
 ----------
 Spawn is highly extensible, making it easy to write additional templates or recipes, called "genomes." 
@@ -36,13 +45,13 @@ TODO
 
 Immediate needs before public release:
 
-* Implement a genome for controller generation within a webapp
-* Implement a genome for view generation within a webapp (using StringTemplate)
+* Implement a genome for view generation within a webapp (using Enlive)
 * Make more newbie-friendly by providing helpful guidance on errors instead of stack traces.
 * Provide a mechanism for introspecting and listing the available genomes, along with documentation
 
 Nice-to-haves:
 
+* Implement a genome for middleware generation within a webapp
 * Implement a genome for RESTful resource generation within a webapp
 * Implement a genome for generating an Enlive view
 * Implement a a genome for generating a Hiccup view

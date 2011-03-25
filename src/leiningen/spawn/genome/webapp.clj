@@ -13,13 +13,11 @@
     (gene/build-filesystem
      {name {"project.clj" (gene/apply-template (t "project_clj") data)
             "README"      (gene/apply-template (t "README") data)
-            "src"         {name {"server.clj" (gene/apply-template (t "server_clj") data)
-                                 "controllers" {}
+            "src"         {name {"server.clj" (gene/apply-template (t "src/server_clj") data)
+                                 "controllers" {"index.clj" (gene/apply-template (t "src/controllers/index_clj") data)}
                                  "views" {}}}
-            "test"        {name {"test" {"server.clj" (gene/apply-template (t "server_clj_test") data)}
-                                 "controllers" {}
-                                 "views" {}}}
-            "public"      {"robots.txt" (gene/apply-template (t "robots_txt") data)
+            "test"        {name {"test" {"server.clj" (gene/apply-template (t "test/server_clj_test") data)}}}
+            "public"      {"robots.txt" (gene/apply-template (t "public/robots_txt") data)
                            "js" {}
                            "css" {}
                            "img" {}}
