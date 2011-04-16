@@ -1,6 +1,7 @@
 (ns leiningen.spawn.genome-util
   "Contains functions for converting genomes into projects"
-  (:require [org.bituf.clj-stringtemplate :as st])
+  (:require [org.bituf.clj-stringtemplate :as st]
+            [clojure.string :as str])
   (:import (java.io File)))
 
 (defn write-textfile
@@ -44,4 +45,7 @@ Map values are implied to be dirs and are written recursively."
         filled (st/fill-view! view data)]
     (st/render-view filled)))
 
-
+(defn underscore
+  "replace dashes with underscores"
+  [name]
+  (str/replace name \- \_))
