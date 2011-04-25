@@ -9,14 +9,15 @@
 (defn webapp
   "A genome for creating webapps"
   [name]
-  (let [data {"name" name}]
+  (let [data {"name" name}
+        dirname (gene/underscore name)]
     (gene/build-filesystem
      {name {"project.clj" (gene/apply-template (t "project_clj") data)
             "README"      (gene/apply-template (t "README") data)
-            "src"         {name {"server.clj" (gene/apply-template (t "src/server_clj") data)
-                                 "controllers" {"index.clj" (gene/apply-template (t "src/controllers/index_clj") data)}
-                                 "views" {}}}
-            "test"        {name {"test" {"server.clj" (gene/apply-template (t "test/server_clj_test") data)}}}
+            "src"         {dirname {"server.clj" (gene/apply-template (t "src/server_clj") data)
+                                     "controllers" {"index.clj" (gene/apply-template (t "src/controllers/index_clj") data)}
+                                     "views" {}}}
+            "test"        {dirname {"test" {"server.clj" (gene/apply-template (t "test/server_clj_test") data)}}}
             "public"      {"robots.txt" (gene/apply-template (t "public/robots_txt") data)
                            "js" {}
                            "css" {}

@@ -25,7 +25,8 @@
     (insert-after file pattern insert)))
 
 (defn update-server-file [projectname name]
-  (let [filename (str "./src/" projectname "/server.clj")
+  (let [dirname (gene/underscore projectname)
+        filename (str "./src/" dirname "/server.clj")
         serverfile (slurp filename)]
     (if (or (not serverfile) (empty? serverfile))
       (throw (Exception. "Could not find server.clj. Did you generate this project with 'spawn webapp'?"))
@@ -35,8 +36,9 @@
   "Creates a controller in a webapp"
   [project name]
   (let [projectname (:name project)
+        dirname (gene/underscore projectname)
         data {"name" name
               "projectname" projectname}]
     (update-server-file projectname name)
     (gene/build-filesystem
-     {"src" {projectname {"controllers" {(str name ".clj") (gene/apply-template (t "template_clj") data)}}}})))
+     {"src" {dirname {"controllers" {(str name ".clj") (gene/apply-template (t "template_clj") data)}}}})))
