@@ -53,7 +53,7 @@ Nice-to-haves:
 
 * Implement a genome for middleware generation within a webapp
 * Implement a genome for RESTful resource generation within a webapp
-* Implement a genome for generating an Enlive view
+* Implement a genome for generating an StringTemplate view
 * Implement a a genome for generating a Hiccup view
 * Enable war compilation for the generated webapp
 * Make it possible to create and install genomes without recompiling and redistributing Spawn
