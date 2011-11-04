@@ -1,4 +1,4 @@
-(defproject spawn "0.1.0-SNAPSHOT"
+(defproject spawn "0.1.0-alpha1"
   :description "A leiningen plugin for project and code generation"
   :dependencies [[org.clojure/clojure "1.3.0"]
                  [org.clojure/java.classpath "0.2.0"]
