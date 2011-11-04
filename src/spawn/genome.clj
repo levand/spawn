@@ -8,20 +8,20 @@
 (defn write-textfile
   "Writes a string as a textfile. Noop if the file already exists."
   [base name content]
-  (let [path (str (.getCanonicalPath base) File/separator name)
-        file (File. path)]
-    (if (not (.exists file))
-      (spit file content))))
+  (let [path (io/file (.getCanonicalPath base) name)]
+    (if (not (.exists path))
+      (spit path content))))
 
 (defn write-directory
   "Writes a directory. Noop if the directory already exists.
 Returns a java.io.File representing the directory."
   [base name]
-  (let [path (str (.getCanonicalPath base) File/separator name)
-        file (File. path)]
-    (if (not (.exists file))
-      (.mkdir file))
-    file))
+  (let [path (io/file (.getCanonicalPath base) name)]
+    (if (not (.exists path))
+      (.mkdir path))
+    path))
+
+(def ^{:dynamic true} *base* (io/file "."))
 
 (defn build-filesystem
   "Uses the provided map to create a filesystem structure.
@@ -29,9 +29,9 @@ Keys should be strings and represent file/dir names.
 String values are saved as text files.
 Map values are implied to be dirs and are written recursively."
   ([files]
-     (build-filesystem files (File. ".")))
+     (build-filesystem files *base*))
   ([files base]
-     (let [base (if (instance? File base) base (File. base))]
+     (let [base (io/file base)]
        (doseq [name (keys files)]
          (let [content (files name)]
            (cond
