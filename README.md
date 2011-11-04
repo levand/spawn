@@ -12,3 +12,5 @@ It has two primary goals:
 ## Extensible
 
 Spawn is very extensible. You can create your own templates (called genomes) and use them wherever you want. To do that, create a file on the classpath using a directory structure like this: `spawn/genome/mygenome.clj`. This file must contain a function that is the same name as the last segment of its namespace -- in this case, `mygenome`. If the first argument to this function is called 'project', then `spawn.core/spawn` will try to pass a project in, usually provided by either the cake or leiningen plugins.
+
+For examples of genomes, look in spawn's built-in genomes.
