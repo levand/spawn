@@ -41,7 +41,7 @@ Map values are implied to be dirs and are written recursively."
 
 (defn- get-template [t]
   (let [writer (StringWriter.)]
-    (io/copy (.getResourceAsStream (clojure.lang.RT/baseLoader) t) writer)
+    (io/copy (io/file (io/resource t)) writer)
     (str writer)))
 
 (defn apply-template
