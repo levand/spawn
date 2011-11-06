@@ -8,4 +8,5 @@
     {name {"project.clj" (gene/render "project.clj" data)
            "README.md" (gene/render "README.md" data)
            ".gitignore" (gene/render "gitignore" data)
-           "src" {(gene/underscore name) {"core.clj" (gene/render "core.clj" data)}}}}))
+           "src" {(gene/underscore name) {"core.clj" (gene/render "core.clj" data)}}
+           "test" {(gene/underscore name) {"core_test.clj" (gene/render "test.clj" data)}}}}))

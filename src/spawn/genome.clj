@@ -43,7 +43,7 @@
 
 (defn- get-template [t]
   (let [writer (StringWriter.)]
-    (io/copy (io/file (io/resource (str t))) writer)
+    (io/copy (io/reader (io/resource (str t))) writer)
     (str writer)))
 
 (defn render
